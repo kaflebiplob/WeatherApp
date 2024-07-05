@@ -9,19 +9,28 @@
 body {
   background-color: #f0f0f0;
 }
+
+.bodypart{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 8rem;
+
+}
 .input-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 .input-section input {
   padding: 5px;
-  width: 250px;
+  width: 350px;
   border: 1px solid black;
   margin: 0 12px;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .input-section button {
   background: none;
@@ -29,55 +38,77 @@ body {
   cursor: pointer;
   size: 50px;
 }
-.body-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.body-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-body {
+  background-color: white;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.sub-body h2 {
+  font-size: 7rem;
+  text-align: center;
+}
+.sub-body .temprature,
+h3 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
 
+.sub-body span {
+  font-size: 2rem;
+  display: flex;
 }
-.sub-body{
-    background-color: rgb(172, 212, 212);
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    box-shadow: #f0f0f0;
-    margin-top: 10rem;
-    padding: 10px;
+.sub-body .humidity p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
 }
-.sub-body h2{
-    font-size: 7rem;
-    text-align: center;
+.weather-type {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(51, 45, 45);
+  text-align: center;
 }
-.sub-body .temprature, h3{
-    font-size: 50px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 0;
+.HWR {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  width: 350px;
+  max-width: 600px;
+  justify-content: space-between;
+  margin: 2rem 0;
 }
-
-.sub-body span{
-    font-size: 2rem;
-    display: flex;
+.dateandtime {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500ox;
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  text-align: center;
 }
-.sub-body .humidity p{
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-   
+.dateandtime .time-section {
+  font-size: 30px;
+  margin: 2rem 0;
+  font-weight: initial;
 }
-.weather-type{
-    font-size: 20px;
-    font-weight: 500;
-    color: rgb(51, 45, 45);
-    text-align: center;
+.time-section span {
+  font-size: 20px;
 }
-.HWR{
-    display: flex;
-    align-items: center;
-    background-color: red;
-    width: 350px;
-    max-width: 600px;
-justify-content: space-between;
+.dateandtime .date-section {
+  font-size: 20px;
+  font-weight: 700;
 }

@@ -23,16 +23,15 @@ function Weather({ city }) {
     setLoading(true);
     setError(null);
     try {
-      const API_keys = "6f8185beb4da6c7734507a25d6397573";
+      const VITE_API_KEY = `6f8185beb4da6c7734507a25d6397573`;
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_keys}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${VITE_API_KEY}`
       );
       console.log("Fetched data", response.data);
       setDatas(response.data);
     } catch (error) {
       setDatas(null);
-      setError("you got the error", error);
-      console.error("you got error", error);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -68,7 +67,7 @@ function Weather({ city }) {
   return (
     <div className="body-section">
       <div className="sub-body">
-        {loading && <p className="loading">loading....</p>}
+        {loading && <p className="loading">{loading}</p>}
         {error && <p className="error-part">{error}</p>}
         {datas && (
           <div className="temp-description">
@@ -78,10 +77,12 @@ function Weather({ city }) {
             <p className="weather-type">{datas.weather[0].description}</p>
             <div className="HWR">
               <div className="humidity">
-                <p><span>
-                  <WiHumidity />
-                </span>
-                : {datas.main.humidity} %</p>
+                <p>
+                  <span>
+                    <WiHumidity />
+                  </span>
+                  : {datas.main.humidity} %
+                </p>
               </div>
               <div className="humidity">
                 <p>
@@ -92,10 +93,13 @@ function Weather({ city }) {
                 </p>
               </div>
               <div className="humidity">
-               <p> <span>
-                  <WiRain />
-                </span>
-                : {getRainData(datas.rain)}</p>
+                <p>
+                  {" "}
+                  <span>
+                    <WiRain />
+                  </span>
+                  : {getRainData(datas.rain)}
+                </p>
               </div>
             </div>
           </div>
