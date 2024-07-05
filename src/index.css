@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Wittgenstein", serif;
+}
+body {
+  background-color: #f0f0f0;
+}
+.input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+.input-section input {
+  padding: 5px;
+  width: 250px;
+  border: 1px solid black;
+  margin: 0 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+.input-section button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  size: 50px;
+}
+.body-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.sub-body{
+    background-color: rgb(172, 212, 212);
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    box-shadow: #f0f0f0;
+    margin-top: 10rem;
+    padding: 10px;
+}
+.sub-body h2{
+    font-size: 7rem;
+    text-align: center;
+}
+.sub-body .temprature, h3{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.sub-body span{
+    font-size: 2rem;
+    display: flex;
+}
+.sub-body .humidity p{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+.weather-type{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(51, 45, 45);
+    text-align: center;
+}
+.HWR{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    width: 350px;
+    max-width: 600px;
+justify-content: space-between;
+}
