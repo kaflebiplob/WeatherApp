@@ -5,13 +5,14 @@ import DateTime from "./components/dateandtime";
 
 function App() {
   const [city, setCity] = useState("Kathmandu");
+  const[timeZoneOffset, setTimeZoneOffset]= useState(0)
 
   return (
     <div className="main-container">
       <InputSection setCity={setCity} />
       <div className="bodypart">
-        <DateTime />
-        <Weather city={city} />
+        <DateTime timeZoneOffset={timeZoneOffset}/>
+        <Weather city={city} setTimeZoneOffset={setTimeZoneOffset}/>
       </div>
     </div>
   );

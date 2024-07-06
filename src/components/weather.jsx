@@ -10,8 +10,8 @@ import {
   WiWindy,
 } from "react-icons/wi";
 
-function Weather({ city }) {
-  const [datas, setDatas] = useState(null);
+function Weather({ city, setTimeZoneOffset }) {
+  const [datas, setDatas] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -29,6 +29,8 @@ function Weather({ city }) {
       );
       console.log("Fetched data", response.data);
       setDatas(response.data);
+      const timeZoneOffset = response.data.timezone*1000;
+      setTimeZoneOffset(timeZoneOffset)
     } catch (error) {
       setDatas(null);
       setError(error.message);
@@ -40,7 +42,7 @@ function Weather({ city }) {
     if (city) {
       weatherdata("Kathmandu");
     }
-  }, [city]);
+  }, [city, setTimeZoneOffset]);
   const getWeatherIcon = (main) => {
     switch (main) {
       case "Clear":
@@ -61,6 +63,7 @@ function Weather({ city }) {
     if (rain) {
       return rain["1h"] ? `${rain["1h"]}mm` : `${rain["3h"]} mm `;
     }
+    
     return "No rain data";
   };
 

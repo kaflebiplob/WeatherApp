@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function DateTime() {
+function DateTime({ timeZoneOffset }) {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
@@ -10,30 +10,40 @@ function DateTime() {
     console.log(new Date());
     return () => clearInterval(interval);
   }, []);
-  function currentDT(date) {
-    const Doptions = {
+  function currentdate(dateTime, offset) {
+    const localdatetime = new Date(dateTime.getTime() + offset)
+    return localdatetime.toLocaleDateString(undefined, {
+      timeZone: "UTC",
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
-    };
-    const Toptions = {
+    })
+  }
+  function currenttime(dateTime, offset) {
+    const localdatetime = new Date(dateTime.getTime() + offset)
+    return localdatetime.toLocaleTimeString(undefined, {
+      timeZone: "UTC",
       minute: "2-digit",
       hour: "2-digit",
       second: "2-digit",
-    };
 
-    const FormattedDate = date.toLocaleDateString(undefined, Doptions);
-    const FormattedTime = date.toLocaleTimeString(undefined, Toptions);
-    return { FormattedDate, FormattedTime };
+    })
+
+
   }
-  const { FormattedDate, FormattedTime } = currentDT(currentDate);
-  return (
-    <div className="dateandtime">
-      <p className="date-section">{FormattedDate}</p>
-      <p className="time-section"><span>Current Time:</span><br />{FormattedTime} </p>
+  // const FormattedDate = localtime.toLocaleDateString("en-US", Doptions);
+  // const FormattedTime = localtime.toLocaleTimeString("en-US", Toptions);
+  // return { FormattedDate, FormattedTime };
 
-    </div>
-  );
+// const { FormattedDate, FormattedTime } = currentDT(currentDate, timeZoneOffset);
+// console.log(timeZoneOffset)
+return (
+  <div className="dateandtime">
+    <p className="date-section">{currentdate(currentDate, timeZoneOffset)}</p>
+    <p className="time-section"><span>Current Time:</span><br />{currenttime(currentDate, timeZoneOffset)} </p>
+    {/* <p>{currentDT(currentDate, timeZoneOffset)}</p> */}
+  </div>
+);
 }
 export default DateTime;
