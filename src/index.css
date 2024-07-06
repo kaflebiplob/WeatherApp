@@ -10,27 +10,27 @@ body {
   background-color: #f0f0f0;
 }
 
-.bodypart{
+.bodypart {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 8rem;
-
 }
 .input-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
+  margin: 20px 0;
 }
 .input-section input {
   padding: 5px;
   width: 350px;
   border: 1px solid black;
-  margin: 0 12px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 12px;
 }
 .input-section button {
   background: none;
@@ -111,4 +111,42 @@ h3 {
 .dateandtime .date-section {
   font-size: 20px;
   font-weight: 700;
+}
+.lighttheme {
+  background-color: #f0f0f0;
+  color: black;
+}
+.dartheme {
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+.header-part {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.dartheme .input-section input,
+.dartheme .sub-body,
+.dartheme .dateandtime {
+  background-color: black;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 253, 253, 0.964);
+}
+.dartheme .input-section button {
+  color: white;
+}
+.dartheme .theme-btn {
+  background-color: white;
+  color: black;
+}
+.theme-btn {
+  padding: 0px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: black;
+  color: white;
 }

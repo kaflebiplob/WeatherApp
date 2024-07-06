@@ -8,12 +8,18 @@ import {
   WiThunderstorm,
   WiHumidity,
   WiWindy,
+  WiNightClear,
+  WiNightAltCloudy,
+  WiNightAltRain,
+  WiNightAltSnow,
+  WiNightAltLightning,
 } from "react-icons/wi";
 
 function Weather({ city, setTimeZoneOffset }) {
   const [datas, setDatas] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isday, setIsDay] = useState(true);
 
   const weatherdata = async () => {
     if (city == "") {
@@ -29,8 +35,16 @@ function Weather({ city, setTimeZoneOffset }) {
       );
       console.log("Fetched data", response.data);
       setDatas(response.data);
-      const timeZoneOffset = response.data.timezone*1000;
-      setTimeZoneOffset(timeZoneOffset)
+      const timeZoneOffset = response.data.timezone * 1000;
+      setTimeZoneOffset(timeZoneOffset);
+
+      const { sunrise, sunset } = response.data.sys;
+      const currenttime = response.data.dt;
+
+      const currentLocalTime = currenttime + timeZoneOffset;
+      const isdaytime =
+        currentLocalTime >= sunrise && currentLocalTime < sunset;
+      setIsDay(isdaytime);
     } catch (error) {
       setDatas(null);
       setError(error.message);
@@ -46,24 +60,28 @@ function Weather({ city, setTimeZoneOffset }) {
   const getWeatherIcon = (main) => {
     switch (main) {
       case "Clear":
-        return <WiDaySunny />;
+        return isday ? <WiDaySunny /> : <WiNightClear />;
       case "Clouds":
-        return <WiCloud />;
+        return isday ? <WiCloud /> : <WiNightAltCloudy />;
       case "Rain":
-        return <WiRain />;
+        // return <WiRain />;
+        return isday ? <WiRain /> : <WiNightAltRain />;
+
       case "Snow":
-        return <WiSnow />;
+        // return <WiSnow />;
+        return isday ? <WiSnow /> : <WiNightAltSnow />;
+
       case "Thunderstorm":
-        return <WiThunderstorm />;
+        return isday ? <WiThunderstorm /> : <WiNightAltLightning />;
       default:
-        return <WiDaySunny />;
+        return isday ? <WiDaySunny /> : <WiNightClear />;
     }
   };
   const getRainData = (rain) => {
     if (rain) {
       return rain["1h"] ? `${rain["1h"]}mm` : `${rain["3h"]} mm `;
     }
-    
+
     return "No rain data";
   };
 
