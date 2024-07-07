@@ -1,15 +1,52 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-function InputSection({setCity}) {
+function InputSection({ setCity, city }) {
   const [inputvalue, setInputValue] = useState("");
+  // const [showSuggestion, setShowSuggestion] = useState(false);
+  // const[filterSuggestion, setFilterSuggestion]=useState([]);
+
+
+
+
+  // function handlesuggestion(suggestion) {
+  //   setShowSuggestion(false);
+  //   setCity(suggestion);
+  //   setInputValue(suggestion)
+  //   console.log("Searched Triggered:",inputvalue)
+  // }
 
   function handleInput(event) {
-    setInputValue(event.target.value)
+    const values =event.target.value;
+    setInputValue(values);
+    console.log(event.target.value);
+
+    // if(value){
+    //   filterSuggestion =suggestion
+    // }
   }
-  function handleSearch(e){
+  function handlessearch(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      console.log("enter key is pressed");
+      handleSearch();
+    }
+  }
+
+  function handleSearch() {
+    if (inputvalue.trim() === "") {
+      alert("Enter the city");
+      return;
+    }
+    if (inputvalue.trim().toLowerCase() !== city.toLowerCase()) {
+      alert("Enter the correct city name if city is correct then enter OK");  
+      // return;
+      console.log("inputValue:", inputvalue.trim().toLowerCase());
+      console.log("city:", city.toLowerCase());
+    }
     setCity(inputvalue);
- 
+
+    console.log("input value = ", inputvalue);
   }
 
   return (
@@ -19,10 +56,13 @@ function InputSection({setCity}) {
         placeholder="Enter the City name..."
         onChange={handleInput}
         value={inputvalue}
+        onKeyDown={handlessearch}
       />
       <button onClick={handleSearch}>
         <FaSearch />
       </button>
+
+
     </div>
   );
 }

@@ -5,7 +5,7 @@ import DateTime from "./components/dateandtime";
 import Theme from "./components/theme";
 
 function App() {
-  const [city, setCity] = useState("Kathmandu");
+  const [city, setCity] = useState("Kathmandu")
   const [timeZoneOffset, setTimeZoneOffset] = useState(0);
   const [darkTheme, setDarkTheme] = useState(false);
   
@@ -21,7 +21,7 @@ function App() {
       <div className="main-container">
         <div className="header-part">
           <Theme toogletheme={toogletheme} darkTheme={darkTheme}/>
-          <InputSection setCity={setCity} />
+          <InputSection setCity={setCity} city={city}/>
         </div>
         <div className="bodypart">
           <DateTime timeZoneOffset={timeZoneOffset} />

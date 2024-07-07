@@ -22,10 +22,7 @@ function Weather({ city, setTimeZoneOffset }) {
   const [isday, setIsDay] = useState(true);
 
   const weatherdata = async () => {
-    if (city == "") {
-      //   alert("Enter the city")
-      return;
-    }
+   
     setLoading(true);
     setError(null);
     try {
@@ -61,7 +58,7 @@ function Weather({ city, setTimeZoneOffset }) {
   };
   useEffect(() => {
     if (city) {
-      weatherdata("Kathmandu");
+      weatherdata("");
     }
   }, [city, setTimeZoneOffset]);
   const getWeatherIcon = (main) => {
