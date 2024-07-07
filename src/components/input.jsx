@@ -39,7 +39,7 @@ function InputSection({ setCity, city }) {
       return;
     }
     if (inputvalue.trim().toLowerCase() !== city.toLowerCase()) {
-      alert("Enter the correct city name if city is correct then enter OK");  
+      // alert("Enter the correct city name if city is correct then enter OK");  
       // return;
       console.log("inputValue:", inputvalue.trim().toLowerCase());
       console.log("city:", city.toLowerCase());
