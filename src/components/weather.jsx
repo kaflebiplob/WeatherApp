@@ -41,10 +41,17 @@ function Weather({ city, setTimeZoneOffset }) {
       const { sunrise, sunset } = response.data.sys;
       const currenttime = response.data.dt;
 
-      const currentLocalTime = currenttime + timeZoneOffset;
+      const currentLocalTime = currenttime;
       const isdaytime =
         currentLocalTime >= sunrise && currentLocalTime < sunset;
       setIsDay(isdaytime);
+      console.log("it is ", isdaytime);
+      console.log("Sunrise:", new Date(sunrise * 1000).toLocaleTimeString());
+      console.log("Sunset:", new Date(sunset * 1000).toLocaleTimeString());
+      console.log(
+        "Current Local Time:",
+        new Date(currentLocalTime * 1000).toLocaleTimeString()
+      );
     } catch (error) {
       setDatas(null);
       setError(error.message);

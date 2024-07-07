@@ -30,8 +30,8 @@ function DateTime({ timeZoneOffset }) {
 
     })
 
-
   }
+  
   // const FormattedDate = localtime.toLocaleDateString("en-US", Doptions);
   // const FormattedTime = localtime.toLocaleTimeString("en-US", Toptions);
   // return { FormattedDate, FormattedTime };
