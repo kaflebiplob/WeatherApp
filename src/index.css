@@ -95,7 +95,7 @@ h3 {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 500ox;
-  width: 300px;
+  width: 375px;
   height: 200px;
   padding: 10px;
   text-align: center;
@@ -153,7 +153,7 @@ h3 {
   background-color: black;
   color: white;
 }
-@media (max-width:700px) {
+@media (max-width:800px) {
   .header-part{
     display: flex;
     flex-direction: column;
@@ -175,6 +175,7 @@ h3 {
 .dateandtime{
   width: 367px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
 }
 
 }
@@ -189,8 +190,8 @@ h3 {
     justify-content: space-around;
   }
 .dateandtime{
-  height: 466px;
-  /* width: 400px; */
+  /* height: 466px; */
+  width: 375px;
 }
 .theme-btn{
   padding: 0 10px;
